@@ -3,7 +3,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 
-DATABASE_URL = "postgresql://postgres:1234@db/db_name"
+#DATABASE_URL = "postgresql://postgres:1234@db/db_name"
+
+DATABASE_URL = os.getenv("DATABASE_URL")  # Toma la variable de entorno de Railway
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL no está configurada")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
