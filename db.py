@@ -2,6 +2,7 @@ from sqlalchemy import Column, Integer, Float, String, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
+import os
 
 #DATABASE_URL = "postgresql://postgres:1234@db/db_name"
 
